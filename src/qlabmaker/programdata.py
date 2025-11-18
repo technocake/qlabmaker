@@ -10,6 +10,7 @@ panel = [
 # Day 1
 
 
+
 speakers1 = {
 	"00_StianDavies": ["StianDavies"],
 	"01_StuartSumida": ["StuartSumida"],
@@ -28,9 +29,20 @@ skip1 = {
 	"05_NainitaDesai": [],
 
 	# hack
-	"Panel": ['Name', 'Combo']
+	"Panel": ['Name', 'Combo'],
+	"Hosts": [],
 }
 
+
+shortnames1 = {
+	"Hosts": ["Sylvia", "Satish", "Des"],
+	"00_StianDavies": ['Stian'],
+	"01_StuartSumida": ['Stuart'],
+	"02_PeterRocchio": ['Peter'],
+	"03_Panel": ['Panel', 'Meg', 'Reese', 'Stephen', 'Vivy'],
+	"04_SofiaRomualdo": ['Sofia'],
+	"05_NainitaDesai": ['Nainita'],
+}
 
 # Day 2
 
@@ -55,3 +67,4 @@ skip2 = {
 	"MarilenaPapacosta": ['Title', 'Intro'],
 	"Martin&Marilena": ['Name', 'Combo']
 }
+

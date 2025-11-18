@@ -61,10 +61,10 @@ def create_speaker_gfx(day, speaker, folder, skip):
 
 
 def main():
-	for group in speakers2.keys():
+	for group in speakers1.keys():
 		create_group(group)
-		for speaker in speakers2[group]:
-			create_speaker_gfx(2, speaker, group, skip2)
+		for speaker in speakers1[group]:
+			create_speaker_gfx(1, speaker, group, skip1)
 
 
 if __name__ == '__main__':

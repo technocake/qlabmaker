@@ -25,7 +25,10 @@ skip1 = {
 	"02_PeterRocchio": [],
 	"03_Panel": ['Title', 'Intro'],
 	"04_SofiaRomualdo": [],
-	"05_NainitaDesai": []
+	"05_NainitaDesai": [],
+
+	# hack
+	"Panel": ['Name', 'Combo']
 }
 
 

@@ -9,8 +9,6 @@ panel = [
 
 # Day 1
 
-
-
 speakers1 = {
 	"00_StianDavies": ["StianDavies"],
 	"01_StuartSumida": ["StuartSumida"],
@@ -35,7 +33,6 @@ skip1 = {
 
 
 shortnames1 = {
-	"Hosts": ["Sylvia", "Satish", "Des"],
 	"00_StianDavies": ['Stian'],
 	"01_StuartSumida": ['Stuart'],
 	"02_PeterRocchio": ['Peter'],
@@ -44,8 +41,17 @@ shortnames1 = {
 	"05_NainitaDesai": ['Nainita'],
 }
 
-# Day 2
+shortnames2 = {
+	"01_RayChase": ["Ray", "Des"],
+	"02_HelenKaur": ["HelenKaur"],
+	"03_SolBrennan": ["Sol"],
+	"04_Martin&Marilena": ["Marilena", "Martin", "Martin&Marilena"],
+	"05_MikeMcCarthy": ["Mike"],
+}
 
+
+
+# Day 2
 
 speakers2 = {
 	"01_RayChase": ["RayChase", "Des"],

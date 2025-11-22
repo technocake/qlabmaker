@@ -13,6 +13,7 @@ class SpeakerInline(admin.TabularInline):
 
 class TalkInline(admin.TabularInline):
 	fields = ('start_time', 'end_time', 'talk', 'program')
+	form = ProgramTalkAdminForm
 	verbose_name = "Talk"
 	verbose_name_plural = "Talks"
 	model = Program.talks.through

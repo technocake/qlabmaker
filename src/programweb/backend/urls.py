@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+admin.site.site_header = "Konsoll Program Designer"
+admin.site.site_title = "Konsoll Program Designer" # For the browser tab
+admin.site.index_title = "Welcome to the Konsoll Program Designer" # For the main index page heading
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]

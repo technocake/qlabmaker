@@ -5,11 +5,16 @@ from django.contrib import admin
 from .models import Speaker, Talk, Program, Event, ProgramTalk
 from .forms import ProgramTalkAdminForm
 
+
+# Inlines____________________________________________________
+
 class SpeakerInline(admin.TabularInline):
 	verbose_name = "Speaker"
 	verbose_name_plural = "Speakers"
 	model = Talk.speakers.through
 	extra = 1
+
+
 
 class TalkInline(admin.TabularInline):
 	fields = ('start_time', 'end_time', 'talk', 'program')
@@ -18,6 +23,11 @@ class TalkInline(admin.TabularInline):
 	verbose_name_plural = "Talks"
 	model = Program.talks.through
 	extra = 5
+
+# Admins____________________________________________________
+
+class SpeakerAdmin(admin.ModelAdmin):
+	list_display = ('name', 'title')
 
 
 class TalkAdmin(admin.ModelAdmin):
@@ -33,15 +43,19 @@ class TalkAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('name', 'start', 'end', 'venue')
+
 
 class ProgramAdmin(admin.ModelAdmin):
 	inlines = [TalkInline]
+
 
 class ProgramTalkAdmin(admin.ModelAdmin):
 	list_display = ('start_time', 'end_time', 'talk', 'program')
 	form = ProgramTalkAdminForm
 
+
+	# These are not used anymore, as the time_format globally has been set in settings.py and in formats/en/formats.py
 	def start_time_display(self, obj):
 		return obj.start_time.strftime("%H:%M")
 	start_time_display.short_description = "Start Time"
@@ -50,7 +64,7 @@ class ProgramTalkAdmin(admin.ModelAdmin):
 		return obj.end_time.strftime("%H:%M")
 	start_time_display.short_description = "End Time"
 
-admin.site.register(Speaker)
+admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Program, ProgramAdmin)

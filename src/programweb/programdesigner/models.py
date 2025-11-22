@@ -11,12 +11,12 @@ class Speaker(models.Model):
 
 class Talk(models.Model):
     title = models.CharField(max_length=200)
-    summary = models.TextField(default="")
+    summary = models.TextField(default="", blank=True)
     updated_at = models.DateTimeField(auto_now=True, help_text="date last updated")
     speakers = models.ManyToManyField(Speaker)
 
     def __str__(self):
-    	return f"{self.title} ({",".join(str(speaker) for speaker in self.speakers.all())})"
+    	return f"{self.title} ({", ".join(str(speaker) for speaker in self.speakers.all())})"
 
 
 class Event(models.Model):

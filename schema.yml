@@ -1,0 +1,757 @@
+openapi: 3.0.3
+info:
+  title: Konsoll Programdesigner API
+  version: 1.0.0
+  description: Making Konsoll prep Automagic!
+paths:
+  /api/v1/events/:
+    get:
+      operationId: events_list
+      tags:
+      - events
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+          description: ''
+    post:
+      operationId: events_create
+      tags:
+      - events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+  /api/v1/events/{id}/:
+    get:
+      operationId: events_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this event.
+        required: true
+      tags:
+      - events
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    put:
+      operationId: events_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this event.
+        required: true
+      tags:
+      - events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    patch:
+      operationId: events_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this event.
+        required: true
+      tags:
+      - events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    delete:
+      operationId: events_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this event.
+        required: true
+      tags:
+      - events
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/programs/:
+    get:
+      operationId: programs_list
+      tags:
+      - programs
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Program'
+          description: ''
+    post:
+      operationId: programs_create
+      tags:
+      - programs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Program'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Program'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Program'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+          description: ''
+  /api/v1/programs/{id}/:
+    get:
+      operationId: programs_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this program.
+        required: true
+      tags:
+      - programs
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+          description: ''
+    put:
+      operationId: programs_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this program.
+        required: true
+      tags:
+      - programs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Program'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Program'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Program'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+          description: ''
+    patch:
+      operationId: programs_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this program.
+        required: true
+      tags:
+      - programs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProgram'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProgram'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProgram'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+          description: ''
+    delete:
+      operationId: programs_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this program.
+        required: true
+      tags:
+      - programs
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/speakers/:
+    get:
+      operationId: speakers_list
+      tags:
+      - speakers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Speaker'
+          description: ''
+    post:
+      operationId: speakers_create
+      tags:
+      - speakers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Speaker'
+          description: ''
+  /api/v1/speakers/{id}/:
+    get:
+      operationId: speakers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this speaker.
+        required: true
+      tags:
+      - speakers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Speaker'
+          description: ''
+    put:
+      operationId: speakers_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this speaker.
+        required: true
+      tags:
+      - speakers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Speaker'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Speaker'
+          description: ''
+    patch:
+      operationId: speakers_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this speaker.
+        required: true
+      tags:
+      - speakers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSpeaker'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSpeaker'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSpeaker'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Speaker'
+          description: ''
+    delete:
+      operationId: speakers_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this speaker.
+        required: true
+      tags:
+      - speakers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/talks/:
+    get:
+      operationId: talks_list
+      tags:
+      - talks
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Talk'
+          description: ''
+    post:
+      operationId: talks_create
+      tags:
+      - talks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Talk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Talk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Talk'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Talk'
+          description: ''
+  /api/v1/talks/{id}/:
+    get:
+      operationId: talks_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this talk.
+        required: true
+      tags:
+      - talks
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Talk'
+          description: ''
+    put:
+      operationId: talks_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this talk.
+        required: true
+      tags:
+      - talks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Talk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Talk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Talk'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Talk'
+          description: ''
+    patch:
+      operationId: talks_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this talk.
+        required: true
+      tags:
+      - talks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTalk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTalk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTalk'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Talk'
+          description: ''
+    delete:
+      operationId: talks_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this talk.
+        required: true
+      tags:
+      - talks
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        venue:
+          type: string
+          maxLength: 200
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+      required:
+      - end
+      - name
+      - start
+      - url
+      - venue
+    PatchedEvent:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        venue:
+          type: string
+          maxLength: 200
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+    PatchedProgram:
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/Event'
+        day:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 1
+        talks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Talk'
+    PatchedSpeaker:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        title:
+          type: string
+          maxLength: 200
+    PatchedTalk:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        speakers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Speaker'
+        title:
+          type: string
+          maxLength: 200
+        summary:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: date last updated
+    Program:
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/Event'
+        day:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 1
+        talks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Talk'
+      required:
+      - event
+      - talks
+    Speaker:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        title:
+          type: string
+          maxLength: 200
+      required:
+      - name
+      - url
+    Talk:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        speakers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Speaker'
+        title:
+          type: string
+          maxLength: 200
+        summary:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: date last updated
+      required:
+      - speakers
+      - title
+      - updated_at
+      - url
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Speaker(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     title = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
@@ -20,7 +20,7 @@ class Talk(models.Model):
 
 
 class Event(models.Model):
-	name = models.CharField(max_length=200)
+	name = models.CharField(max_length=200, unique=True)
 	venue = models.CharField(max_length=200)
 	start = models.DateTimeField()
 	end = models.DateTimeField()
@@ -39,6 +39,9 @@ class Program(models.Model):
 			return f"{self.event} Day {self.day} (@{self.event.venue})"
 		else:
 			return f"{self.event} (@{self.event.venue})"
+
+	class Meta:
+		unique_together = ('event', 'day')
 
 
 class ProgramTalk(models.Model):

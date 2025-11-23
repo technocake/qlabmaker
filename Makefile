@@ -6,11 +6,18 @@ udp:
 qlab:
 	poetry run python3 src/qlabmaker/gfx.py
 
+group:
+	poetry run python3 src/qlabmaker/gfxgroup.py
+
+
 server:
 	poetry run python3 src/qlabmaker/async_server.py
 
 django:
 	poetry run python3 src/programweb/manage.py runserver
+
+swagger:
+	poetry run python3 src/programweb/manage.py spectacular --color --validate --file src/programweb/schema.yml
 
 migrate:
 	poetry run python3 src/programweb/manage.py migrate

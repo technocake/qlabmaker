@@ -1,12 +1,17 @@
 # api.py
 
 from rest_framework import routers, serializers, viewsets
-from .models import Speaker, Event, Program, Talk
-from .serializers import SpeakerSerializer, EventSerializer, TalkSerializer, ProgramSerializer
+from .models import Speaker, Host, Event, Program, Talk
+from .serializers import SpeakerSerializer, EventSerializer, TalkSerializer, ProgramSerializer, HostSerializer
 
 class SpeakerViewSet(viewsets.ModelViewSet):
     queryset = Speaker.objects.all()
     serializer_class = SpeakerSerializer
+
+class HostViewSet(viewsets.ModelViewSet):
+    queryset = Host.objects.all()
+    serializer_class = HostSerializer
+
 
 
 class TalkViewSet(viewsets.ModelViewSet):

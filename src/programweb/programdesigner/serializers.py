@@ -1,10 +1,22 @@
 from rest_framework import routers, serializers, viewsets
-from .models import Speaker, Talk, Program, ProgramTalk, Event
+from .models import Speaker, Host, Talk, Program, ProgramTalk, Event, Person
+
 
 # Serializers define the API representation.
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = '__all__' 
+
+
 class SpeakerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Speaker
+        fields = '__all__' 
+
+class HostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Host
         fields = '__all__' 
 
 
@@ -16,6 +28,11 @@ class TalkSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
+    year = serializers.SerializerMethodField()
+
+    def get_year(self, obj):
+        return obj.year()
+
     class Meta:
         model = Event
         fields = '__all__' 

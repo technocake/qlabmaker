@@ -16,6 +16,8 @@ server:
 django:
 	poetry run python3 src/programweb/manage.py runserver
 
+fixtures:
+	poetry run python3 src/programweb/manage.py dumpdata > fixtures.json
 swagger:
 	poetry run python3 src/programweb/manage.py spectacular --color --validate --file src/programweb/schema.yml
 

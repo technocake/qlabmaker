@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from programdesigner.api import SpeakerViewSet, TalkViewSet, EventViewSet, ProgramViewSet
+from programdesigner.api import SpeakerViewSet, HostViewSet, TalkViewSet, EventViewSet, ProgramViewSet
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from rest_framework import routers
@@ -29,6 +29,7 @@ admin.site.index_title = "Welcome to the Konsoll Program Designer" # For the mai
 # API _____
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
+router.register(r'hosts', HostViewSet)
 router.register(r'speakers', SpeakerViewSet)
 router.register(r'talks', TalkViewSet)
 router.register(r'programs', ProgramViewSet)

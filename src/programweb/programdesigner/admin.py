@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Speaker, Talk, Program, Event, ProgramTalk
+from .models import Speaker, Host, Talk, Program, Event, ProgramTalk
 from .forms import ProgramTalkAdminForm
 
 
@@ -27,6 +27,9 @@ class TalkInline(admin.TabularInline):
 # Admins____________________________________________________
 
 class SpeakerAdmin(admin.ModelAdmin):
+	list_display = ('name', 'title')
+
+class HostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'title')
 
 
@@ -65,6 +68,7 @@ class ProgramTalkAdmin(admin.ModelAdmin):
 	start_time_display.short_description = "End Time"
 
 admin.site.register(Speaker, SpeakerAdmin)
+admin.site.register(Host, HostAdmin)
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Program, ProgramAdmin)
